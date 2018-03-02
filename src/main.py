@@ -7,171 +7,107 @@ service_urls=['translate.google.com','translate.google.co.kr']
 translator = Translator(service_urls)
 
 count = 0
-with open("title.txt","r") as title,open("short.txt","r") as short:
+with open(r"Context\title.txt","r") as title,open(r"Context\short.txt","r") as short:
     title = title.read()
     short = short.read()
-    long = open("long.txt","r")
+    long = open(r"Context\long.txt","r")
 
 PLAYSTORE = {
-'en':'en-IN',
+'en-IN':'en',
 'af':'af',
 'am':'am',
 'ar':'ar',
-'hy':'hy-AN',
-'az':'az-AZ',
-'bn':'bn-BD',
-'eu':'eu-ES',
+'hy-AM':'hy',
+'az-AZ':'az',
+'bn-BD':'bn',
+'eu-ES':'eu',
 'be':'be',
 'bg':'bg',
-'my':'my-MM',
+'my-MM':'my',
 'ca':'ca',
-'zh-cn':'zh-HK',
-'zh-cn':'zh-CN',
-'zh-tw':'zh-TW',
+'zh-HK':'zh-cn',
+'zh-cn':'zh-cn',
+'zh-tw':'zh-tw',
 'hr':'hr',
-'cs':'cs-CZ',
-'da':'da-DK',
-'nl':'nl-NL',
-'en':'en-AU',
-'en':'en-SG',
-'en': 'en-ZA',
-'en': 'en-CA',
-'en':'en-GB',
-'en': 'en-US',
+'cs-CZ':'cs',
+'da-DK':'da',
+'nl-NL':'nl',
+'en-AU':'en',
+'en-SG':'en',
+'en-ZA':'en',
+'en-CA':'en',
+'en-GB':'en',
+'en-US':'en',
 'et':'et',
-'tl':'fil',
-'fi':'fi-FI',
-'fr':'fr-FR',
-'fr': 'fr-CA',
-'gl':'gl-ES',
-'ka':'ka-GE',
-'de':'de-DE',
-'el':'el-GR',
-'iw':'iw-IL',
-'hi':'hi-IN',
-'hu':'hu-HU',
-'is':'is-IS',
+'fil':'tl',
+'fi-FI':'fi',
+'fr-FR':'fr',
+'fr-CA':'fr',
+'gl-ES':'gl',
+'ka-GE':'ka',
+'de-DE':'de',
+'el-GR':'el',
+'iw-IL':'iw',
+'hi-IN':'hi',
+'hu-HU':'hu',
+'is-IS':'is',
 'id':'id',
-'it':'it-IT',
-'ja':'ja-JP',
-'kn':'kn-IN',
-'km':'km-KH',
-'ko':'ko-KR',
-'ky':'ky-KG',
-'lo':'lo-LA',
-'la':'lv',
+'it-IT':'it',
+'ja-JP':'ja',
+'kn-IN':'kn',
+'km-KH':'km',
+'ko-KR':'ko',
+'ky-KG':'ky',
+'lo-LA':'lo',
+'lv':'la',
 'lt':'lt',
-'mk':'mk-MK',
+'mk-MK':'mk',
 'ms':'ms',
-'ml':'ml-IN',
-'mr':'mr-IN',
-'mn':'mn-MN',
-'ne':'ne-NP',
-'no':'no-NO',
+'ml-IN':'ml',
+'mr-IN':'mr',
+'mn-MN':'mn',
+'ne-NP':'ne',
+'no-NO':'no',
 'fa':'fa',
-'pl':'pl-PL',
-'pt':'pt-BR',
-'pt':'pt-PT',
+'pl-PL':'pl',
+'pt-BR':'pt',
+'pt-PT':'pt',
 'ro':'ro',
-'ro':'rm',
-'ru':'ru-RU',
+'rm':'ro',
+'ru-RU':'ru',
 'sr':'sr',
-'si':'si-LK',
+'si-LK':'si',
 'sk':'sk',
 'sl':'sl',
-'es':'es-149',
-'es':'es-ES',
-'es':'es-US',
+'es-419':'es',
+'es-ES':'es',
+'es-US':'es',
 'sw':'sw',
-'sv':'sv-SE',
-'ta':'ta-IN',
-'te':'te-IN',
+'sv-SE':'sv',
+'ta-IN':'ta',
+'te-IN':'te',
 'th':'th',
-'tr':'tr-TR',
+'tr-TR':'tr',
 'uk':'uk',
 'vi':'vi',
 'zu':'zu'
 }
 
 LANGUAGES = {
-'en': 'english',
-'af': 'afrikaans',
-'am': 'amharic',
-'ar': 'arabic',
-'hy': 'armenian',
-'az': 'azerbaijani',
-'bn': 'bengali',
-'eu': 'basque',
-'be': 'belarusian',
-'bg': 'bulgarian',
-'my': 'myanmar (burmese)',
-'ca': 'catalan',
-'zh-cn': 'chinese (simplified)',
-'zh-cn': 'chinese (simplified)',
-'zh-tw': 'chinese (traditional)',
-'hr': 'croatian',
-'cs': 'czech',
-'da': 'danish',
-'nl': 'dutch',
-'en': 'english',
-'en': 'english',
-'en': 'english',
-'en': 'english',
-'en': 'english',
-'et': 'estonian',
-'tl': 'filipino',
-'fi': 'finnish',
-'fr': 'french',
-'fr': 'french',
-'gl': 'galician',
-'ka': 'georgian',
-'de': 'german',
-'el': 'greek',
-'iw': 'hebrew',
-'hi': 'hindi',
-'hu': 'hungarian',
-'is': 'icelandic',
-'id': 'indonesian',
-'it': 'italian',
-'ja': 'japanese',
-'kn': 'kannada',
-'km': 'khmer',
-'ko': 'korean',
-'ky': 'kyrgyz',
-'lo': 'lao',
-'la': 'latin',
-'lt': 'lithuanian',
-'mk': 'macedonian',
-'ms': 'malay',
-'ml': 'malayalam',
-'mr': 'marathi',
-'mn': 'mongolian',
-'ne': 'nepali',
-'no': 'norwegian',
-'fa': 'persian',
-'pl': 'polish',
-'pt': 'portuguese',
-'pt': 'portuguese',
-'ro': 'romanian',
-'ro': 'romanian',
-'ru': 'russian',
-'sr': 'serbian',
-'si': 'sinhala',
-'sk': 'slovak',
-'sl': 'slovenian',
-'es': 'spanish',
-'es': 'spanish',
-'es': 'spanish',
-'sw': 'swahili',
-'sv': 'swedish',
-'ta': 'tamil',
-'te': 'telugu',
-'th': 'thai',
-'tr': 'turkish',
-'uk': 'ukrainian',
-'vi': 'vietnamese',
-'zu': 'zulu'
-}
+    'en': 'english', 
+    'af': 'afrikaans', 
+    'am': 'amharic', 
+    'ar': 'arabic', 
+    'hy': 'armenian', 
+    'az': 'azerbaijani', 
+    'bn': 'bengali', 
+    'eu': 'basque', 
+    'be': 'belarusian',
+    'bg': 'bulgarian', 
+    'my': 'myanmar (burmese)', 
+    'ca': 'catalan',
+    'zh-cn': 'chinese (simplified)', 'zh-tw': 'chinese (traditional)',
+    'hr': 'croatian', 'cs': 'czech', 'da': 'danish', 'nl': 'dutch', 'et': 'estonian', 'tl': 'filipino', 'fi': 'finnish', 'fr': 'french', 'gl': 'galician', 'ka': 'georgian', 'de': 'german', 'el': 'greek', 'iw': 'hebrew', 'hi': 'hindi', 'hu': 'hungarian', 'is': 'icelandic', 'id': 'indonesian', 'it': 'italian', 'ja': 'japanese', 'kn': 'kannada', 'km': 'khmer', 'ko': 'korean', 'ky': 'kyrgyz', 'lo': 'lao', 'la': 'latin', 'lt': 'lithuanian', 'mk': 'macedonian', 'ms': 'malay', 'ml': 'malayalam', 'mr': 'marathi', 'mn': 'mongolian', 'ne': 'nepali', 'no': 'norwegian', 'fa': 'persian', 'pl': 'polish', 'pt': 'portuguese', 'ro': 'romanian', 'ru': 'russian', 'sr': 'serbian', 'si': 'sinhala', 'sk': 'slovak', 'sl': 'slovenian', 'es': 'spanish', 'sw': 'swahili', 'sv': 'swedish', 'ta': 'tamil', 'te': 'telugu', 'th': 'thai', 'tr': 'turkish', 'uk': 'ukrainian', 'vi': 'vietnamese', 'zu': 'zulu'}
 
 # create a new Firefox session
 driver = webdriver.Firefox(executable_path=r'Runtime\geckodriver.exe')
@@ -179,20 +115,21 @@ driver.implicitly_wait(30)
 driver.maximize_window()
 
 # navigate to the application home page
-URL = driver.get("https://play.google.com/apps/publish/?account=8885818345072357724")
+URL = driver.get("https://accounts.google.com/signin/v2/identifier?service=androiddeveloper&passive=1209600&continue=https%3A%2F%2Fplay.google.com%2Fapps%2Fpublish%2F%23&followup=https%3A%2F%2Fplay.google.com%2Fapps%2Fpublish%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin")
 Confirm = input("Login with User & Pass (Enter)")
 
-New = driver.find_element_by_css_selector("button[class='JIM1JT-f-a JIM1JT-f-r']").click()
-Confirm = input("Enter project name (Enter)")
+New = driver.find_element_by_css_selector("button[class='JGIQJE-f-a JGIQJE-f-r']").click()
+command = 'echo ' + title.strip() + '| clip'
+case = system(command)
+Confirm = input("Paste project name : " + title + " (Enter)")
 
-New = driver.find_element_by_css_selector("button[class='JIM1JT-f-a JIM1JT-Nh-j JIM1JT-Q-c JIM1JT-k-mb']").click()
 Confirm = input("Select add languages (Enter)")
 
-language_button = driver.find_element_by_css_selector("button[class='JIM1JT-f-a JIM1JT-f-p JIM1JT-f-n JIM1JT-f-b JIM1JT-f-c JIM1JT-f-s']")
+language_button = driver.find_element_by_css_selector("button[class='JGIQJE-f-a JGIQJE-f-p JGIQJE-f-n JGIQJE-f-b JGIQJE-f-c JGIQJE-f-s']")
 
-title_box = driver.find_element_by_css_selector("input[class='gwt-TextBox JIM1JT-fn-d']")
-short_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JIM1JT-Zh-d JIM1JT-fn-d']")
-long_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JIM1JT-fn-d']")
+title_box = driver.find_element_by_css_selector("input[class='gwt-TextBox JGIQJE-on-d']")
+short_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JGIQJE-Yh-d JGIQJE-on-d']")
+long_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JGIQJE-on-d']")
 
 system('cls')
 print("SR." + " |  " + "LANGUAGES" + " - " + "Encode" + " | Function Processing" + "................... [Status]")
@@ -202,7 +139,7 @@ for l in PLAYSTORE:
     long.seek(0)
     sleep(1)
     
-    update_language = driver.execute_script("arguments[0].setAttribute('data-lang-code','" + PLAYSTORE[l] + "')", language_button)
+    update_language = driver.execute_script("arguments[0].setAttribute('data-lang-code','" + l + "')", language_button)
     script = driver.execute_script("arguments[0].setAttribute('aria-pressed','false')", language_button)
     sleep(5)
     language_button.click()
@@ -211,12 +148,12 @@ for l in PLAYSTORE:
     short_box.clear()
     long_box.clear()
     
-    translate_title = translator.translate(title, dest=l).text
-    translate_short = translator.translate(short, dest=l).text
-    translate_long = translator.translate(long.read(), dest=l).text
+    translate_title = translator.translate(title, dest=PLAYSTORE[l]).text
+    translate_short = translator.translate(short, dest=PLAYSTORE[l]).text
+    translate_long = translator.translate(long.read(), dest=PLAYSTORE[l]).text
     
-    if l=='bg': translate_short=translate_title
-    if l=='mk': translate_short=translate_title
+    if PLAYSTORE[l]=='bg': translate_short=translate_title
+    if PLAYSTORE[l]=='mk': translate_short=translate_title
 
     title_box.send_keys(translate_title[:50])
     sleep(1)
@@ -225,8 +162,9 @@ for l in PLAYSTORE:
     long_box.send_keys(translate_long[:4000])
     sleep(2)
     
-    print(str(count) + " |  " + LANGUAGES[l] + " - " + l + " | Init Operation Sleep Time 10 Seconds" + "...................[Done]")
+    print(str(count) + " |  " + LANGUAGES[PLAYSTORE[l]] + " - " + l + " | Init Operation Sleep Time 10 Seconds" + "...................[Done]")
  
+#Draft = driver.find_element_by_css_selector("button[class='JIM1JT-f-a JIM1JT-f-r JIM1JT-f-f']").click()
 Verfiy = input("Verify inputs")
 long.close()
 driver.quit()
