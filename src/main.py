@@ -106,8 +106,61 @@ LANGUAGES = {
     'bg': 'bulgarian', 
     'my': 'myanmar (burmese)', 
     'ca': 'catalan',
-    'zh-cn': 'chinese (simplified)', 'zh-tw': 'chinese (traditional)',
-    'hr': 'croatian', 'cs': 'czech', 'da': 'danish', 'nl': 'dutch', 'et': 'estonian', 'tl': 'filipino', 'fi': 'finnish', 'fr': 'french', 'gl': 'galician', 'ka': 'georgian', 'de': 'german', 'el': 'greek', 'iw': 'hebrew', 'hi': 'hindi', 'hu': 'hungarian', 'is': 'icelandic', 'id': 'indonesian', 'it': 'italian', 'ja': 'japanese', 'kn': 'kannada', 'km': 'khmer', 'ko': 'korean', 'ky': 'kyrgyz', 'lo': 'lao', 'la': 'latin', 'lt': 'lithuanian', 'mk': 'macedonian', 'ms': 'malay', 'ml': 'malayalam', 'mr': 'marathi', 'mn': 'mongolian', 'ne': 'nepali', 'no': 'norwegian', 'fa': 'persian', 'pl': 'polish', 'pt': 'portuguese', 'ro': 'romanian', 'ru': 'russian', 'sr': 'serbian', 'si': 'sinhala', 'sk': 'slovak', 'sl': 'slovenian', 'es': 'spanish', 'sw': 'swahili', 'sv': 'swedish', 'ta': 'tamil', 'te': 'telugu', 'th': 'thai', 'tr': 'turkish', 'uk': 'ukrainian', 'vi': 'vietnamese', 'zu': 'zulu'}
+    'zh-cn': 'chinese (simplified)',
+    'zh-tw': 'chinese (traditional)',
+    'hr': 'croatian',
+    'cs': 'czech',
+    'da': 'danish',
+    'nl': 'dutch',
+    'et': 'estonian',
+    'tl': 'filipino',
+    'fi': 'finnish',
+    'fr': 'french',
+    'gl': 'galician',
+    'ka': 'georgian',
+    'de': 'german',
+    'el': 'greek',
+    'iw': 'hebrew',
+    'hi': 'hindi',
+    'hu': 'hungarian',
+    'is': 'icelandic',
+    'id': 'indonesian',
+    'it': 'italian',
+    'ja': 'japanese',
+    'kn': 'kannada',
+    'km': 'khmer',
+    'ko': 'korean',
+    'ky': 'kyrgyz',
+    'lo': 'lao',
+    'la': 'latin',
+    'lt': 'lithuanian',
+    'mk': 'macedonian',
+    'ms': 'malay',
+    'ml': 'malayalam',
+    'mr': 'marathi',
+    'mn': 'mongolian',
+    'ne': 'nepali',
+    'no': 'norwegian',
+    'fa': 'persian',
+    'pl': 'polish',
+    'pt': 'portuguese',
+    'ro': 'romanian',
+    'ru': 'russian',
+    'sr': 'serbian',
+    'si': 'sinhala',
+    'sk': 'slovak',
+    'sl': 'slovenian',
+    'es': 'spanish',
+    'sw': 'swahili',
+    'sv': 'swedish',
+    'ta': 'tamil',
+    'te': 'telugu',
+    'th': 'thai',
+    'tr': 'turkish',
+    'uk': 'ukrainian',
+    'vi': 'vietnamese',
+    'zu': 'zulu'
+    }
 
 # create a new Firefox session
 driver = webdriver.Firefox(executable_path=r'Runtime\geckodriver.exe')
@@ -118,18 +171,18 @@ driver.maximize_window()
 URL = driver.get("https://accounts.google.com/signin/v2/identifier?service=androiddeveloper&passive=1209600&continue=https%3A%2F%2Fplay.google.com%2Fapps%2Fpublish%2F%23&followup=https%3A%2F%2Fplay.google.com%2Fapps%2Fpublish%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin")
 Confirm = input("Login with User & Pass (Enter)")
 
-New = driver.find_element_by_css_selector("button[class='JGIQJE-f-a JGIQJE-f-r']").click()
+New = driver.find_element_by_css_selector("button[class='IF2W6TD-f-a IF2W6TD-f-r']").click()
 command = 'echo ' + title.strip() + '| clip'
 case = system(command)
 Confirm = input("Paste project name : " + title + " (Enter)")
 
 Confirm = input("Select add languages (Enter)")
 
-language_button = driver.find_element_by_css_selector("button[class='JGIQJE-f-a JGIQJE-f-p JGIQJE-f-n JGIQJE-f-b JGIQJE-f-c JGIQJE-f-s']")
+language_button = driver.find_element_by_css_selector("button[class='IF2W6TD-f-a IF2W6TD-f-p IF2W6TD-f-n IF2W6TD-f-b IF2W6TD-f-c IF2W6TD-f-s']")
 
-title_box = driver.find_element_by_css_selector("input[class='gwt-TextBox JGIQJE-on-d']")
-short_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JGIQJE-Yh-d JGIQJE-on-d']")
-long_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea JGIQJE-on-d']")
+title_box = driver.find_element_by_css_selector("input[class='gwt-TextBox IF2W6TD-rn-d']")
+short_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea IF2W6TD-di-d IF2W6TD-rn-d']")
+long_box = driver.find_element_by_css_selector("textarea[class='gwt-TextArea IF2W6TD-rn-d']")
 
 system('cls')
 print("SR." + " |  " + "LANGUAGES" + " - " + "Encode" + " | Function Processing" + "................... [Status]")
